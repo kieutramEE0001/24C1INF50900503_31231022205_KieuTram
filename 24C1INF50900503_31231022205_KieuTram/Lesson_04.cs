@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -19,8 +20,10 @@ namespace _24C1INF50900503_31231022205_KieuTram
             //Question_1();
             //Question_2();
             //Question_3();
+            //Question_4_2();
+            Question_4_3();
             //Question_6();
-            Question_7();
+            //Question_7();
             //Question_8();
             Console.ReadKey();
         }
@@ -268,6 +271,58 @@ namespace _24C1INF50900503_31231022205_KieuTram
                     sum += i;
             }
             return sum == num;     //hàm trả về true nếu sum = num
+        }
+        public static void Question_4_1()
+        //Hàm in ra các pattern của số
+        //Pattern 1
+        {
+            Console.Write("Nhap so ket thuc cua day: ");
+            int n = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= n; i++) //lặp lại theo chiều dọc
+            {
+                for (int j = 1; j <= i; j++) //lặp theo chiều ngang
+                {
+                    Console.Write(j);
+                }
+                Console.WriteLine();
+            }    
+        }
+        public static void Question_4_2()
+        //Pattern 2
+        {
+            Console.Write("Nhap so bat dau: ");
+            int n = int.Parse(Console.ReadLine());
+            Console.Write("Nhap so dong cua mau: ");
+            int rows = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= rows; i++) //lặp lại rows lần theo chiều dọc
+            {
+                for (int j = 1; j <= i; j++) //lặp theo chiều ngang
+                {
+                    Console.Write($"{n} ");
+                    n++;
+                }  
+                Console.WriteLine();
+            }    
+        }
+        public static void Question_4_3()
+        //Pattern 3
+        {
+            int n = 1;
+            int rows = 4;
+            for (int i = 1; i <= rows; i++)
+            {
+                for (int s = 1; s <= rows - i; s++) //In khoảng trắng cho mỗi dòng
+                                                    //số khoảng trắng ở dòng thứ i giảm 1
+                {
+                    Console.Write(" ");
+                }
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write($"{n} ");
+                    n++;
+                }
+                Console.WriteLine();
+            }
         }
     }
 
