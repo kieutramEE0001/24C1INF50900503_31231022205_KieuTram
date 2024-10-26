@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +13,15 @@ namespace _24C1INF50900503_31231022205_KieuTram
     {
         public static void Main()
         {
-            //Question_01();
+            //Question_00();
             //Question_02();
             //Question_03();
-            //Question_04();
-            //Question_05();
-            //Question_06();
-            Question_8();
+            //Question_1();
+            //Question_2();
+            //Question_3();
+            //Question_6();
+            Question_7();
+            //Question_8();
             Console.ReadKey();
         }
         /// <summary>
@@ -37,12 +41,13 @@ namespace _24C1INF50900503_31231022205_KieuTram
                 bool isContinue = true;
                 do
                 {
+                    count++;
                     Console.WriteLine("Ban doan so may? <1...10>");
                     int user_num = int.Parse(Console.ReadLine());
                     //kiem tra ket qua
                     if (user_num == comp_num)
                     {
-                        Console.WriteLine("Ban da doan dung! That gioi");
+                        Console.WriteLine($"Ban da doan dung sau {count} lan! That gioi");
                         isContinue = false;
                     }
                     else
@@ -97,7 +102,43 @@ namespace _24C1INF50900503_31231022205_KieuTram
                     Console.WriteLine($"{a} la so lon nhat");
             }
         }
-        public static void Question_1()
+        public static void Question_03()
+        //kiểm tra tọa độ (x,y) thuộc góc phần tư thứ mấy
+        {
+            Console.Write("Nhap toa do x = ");
+            int x = int.Parse(Console.ReadLine());
+            Console.Write("Nhap toa do y = ");
+            int y = int.Parse(Console.ReadLine());
+            if (x > 0 && y > 0) //x lớn hơn 0 y lớn hơn 0 => (x,y) thuộc góc phần tư thứ Nhất
+            {
+                Console.WriteLine($"The coordinate point ({x},{y}) lies in the First quadrant.");
+            }
+            else if (x < 0 && y > 0)
+            {
+                Console.WriteLine($"The coordinate point ({x},{y}) lies in the Second quadrant.");
+            }
+            else if (x < 0 && y < 0)
+            {
+                Console.WriteLine($"The coordinate point ({x},{y}) lies in the Third quadrant.");
+            }
+            else if (x > 0 && y < 0)
+            {
+                Console.WriteLine($"The coordinate point ({x},{y}) lies in the Fourth quadrant.");
+            }
+            else if (x == 0 && y == 0)
+            {
+                Console.WriteLine($"The coordinate point ({x},{y}) lies at the origin.");
+            }
+            else if (x == 0)
+            {
+                Console.WriteLine($"The coordinate point ({x},{y}) lies on the Y axis.");
+            }
+            else if (y == 0)
+            {
+                Console.WriteLine($"The coordinate point ({x},{y}) lies on the X axis.");
+            }
+        }
+            public static void Question_1()
         //kiem tra tam giac
         {
             Console.Write("Nhap canh a = ");
@@ -158,42 +199,6 @@ namespace _24C1INF50900503_31231022205_KieuTram
                 Console.WriteLine($"{num} x {i} = {result}");
             }
         }
-        public static void Question_03()
-        //kiểm tra tọa độ (x,y) thuộc góc phần tư thứ mấy
-        {
-            Console.Write("Nhap toa do x = ");
-            int x = int.Parse(Console.ReadLine());
-            Console.Write("Nhap toa do y = ");
-            int y = int.Parse(Console.ReadLine());
-            if (x > 0 && y > 0) //x lớn hơn 0 y lớn hơn 0 => (x,y) thuộc góc phần tư thứ Nhất
-            {
-                Console.WriteLine($"The coordinate point ({x},{y}) lies in the First quadrant.");
-            }
-            else if (x < 0 && y > 0)
-            {
-                Console.WriteLine($"The coordinate point ({x},{y}) lies in the Second quadrant.");
-            }
-            else if (x < 0 && y < 0)
-            {
-                Console.WriteLine($"The coordinate point ({x},{y}) lies in the Third quadrant.");
-            }
-            else if (x > 0 && y < 0)
-            {
-                Console.WriteLine($"The coordinate point ({x},{y}) lies in the Fourth quadrant.");
-            }
-            else if (x == 0 && y == 0)
-            {
-                Console.WriteLine($"The coordinate point ({x},{y}) lies at the origin.");
-            }
-            else if (x == 0)
-            {
-                Console.WriteLine($"The coordinate point ({x},{y}) lies on the Y axis.");
-            }
-            else if (y == 0)
-            {
-                Console.WriteLine($"The coordinate point ({x},{y}) lies on the X axis.");
-            }
-        }
         public static void Question_8()
         //kiểm tra xem 1 số có phải là số nguyên tố hay không
         {
@@ -219,6 +224,50 @@ namespace _24C1INF50900503_31231022205_KieuTram
                 }
             }
             return true; // Nếu không tìm thấy ước nào, thì num là số nguyên tố
+        }
+        public static void Question_6()
+        //Nhập số n và trả về tổng của dãy vô hạn Harmonic 1 + 1/2 +......+ 1/n
+        {
+            Console.Write("Enter number n: ");
+            int n = int.Parse(Console.ReadLine());
+            double sum = 0;
+            Console.Write("Harmonic series: ");
+            for (int i = 1; i <= n; i++)
+            {
+                Console.Write($" 1/{i} ");
+                if (i < n)
+                    Console.Write("+");
+                sum += 1.0 / i; // sum += nghĩa là sum' = sum + 1/i
+            }    
+            Console.WriteLine();
+            Console.WriteLine($"Sum of the series = {sum}");
+        }
+        public static void Question_7()
+        //Tìm ra số hoàn hảo trong một khoảng cho trước
+        {
+           //Nhập giá trị bắt đầu và giá trị kết thúc của khoảng
+            Console.Write("Nhap so bat dau cua khoang: ");
+            int Start = int.Parse(Console.ReadLine());
+            Console.Write("Nhap so ket thuc cua khoang: ");
+            int End = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Cac so hoan hao trong khoang tu {Start} den {End}: ");
+            //kiểm tra từng giá trị i trong khoảng
+            for (int n = Start; n <= End; n++) //với mỗi giá trị n thuộc khoảng
+                                               //nếu hàm IsPerfect đúng thì xuất ra màn hình giá trị n
+            {
+                if (IsPerfect(n))
+                    Console.WriteLine(n);
+            }
+        }
+        static bool IsPerfect(int num) //Hàm IsPerfect để kiểm tra 
+        {
+            int sum = 1;
+            for (int i = 2; i < num; i++) 
+            {
+                if (num % i == 0)
+                    sum += i;
+            }
+            return sum == num;     //hàm trả về true nếu sum = num
         }
     }
 
