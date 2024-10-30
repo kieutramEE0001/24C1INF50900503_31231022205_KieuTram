@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,6 +84,24 @@ namespace _24C1INF50900503_31231022205_KieuTram
             double mperhour = kmperhour * 0.621371;
             Console.WriteLine("Van toc can tinh:");
             Console.WriteLine($"{kmperhour} km/h");
+        }
+        public static void Question_06()
+        {
+            Console.Write("Nhap mot ky tu: ");
+            char kytu = Console.ReadKey().KeyChar;
+            Console.WriteLine();
+            if ("AEIOUaeiou".IndexOf(kytu) >= 0)
+            {
+                Console.WriteLine($"{kytu} la mot nguyen am.");
+            }
+            else if (char.IsDigit(kytu))
+            {
+                Console.WriteLine($"{kytu} la mot chu so.");
+            }
+            else
+            {
+                Console.WriteLine($"{kytu} la mot ky hieu khac.");
+            }
         }
     }
 }
