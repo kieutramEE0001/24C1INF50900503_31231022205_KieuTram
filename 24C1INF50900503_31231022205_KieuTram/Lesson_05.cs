@@ -13,10 +13,12 @@ namespace _24C1INF50900503_31231022205_KieuTram
         public static void Main()
         {
             //VD_01();
-            //Game_TaiXiu();
+            Game_TaiXiu();
             //Question_01();
             //Question_02();
-            Question_04a();
+            //Question_04a();
+            //Question_04b();
+            //Question_05();
             Console.ReadKey();
         }
         public static void VD_01()
@@ -53,6 +55,7 @@ namespace _24C1INF50900503_31231022205_KieuTram
         static void playOneRound()
         {
             int comp_dice = rollDice();
+            Console.WriteLine("Chao mung den voi Game Tai Xiu ><");
             Console.Write("Ban doan Tai hay Xiu? <T/X> ");
             string uesr_guessing = Console.ReadLine();
             if (uesr_guessing.ToUpper().Equals("T"))
@@ -76,14 +79,17 @@ namespace _24C1INF50900503_31231022205_KieuTram
         }
         static void Game_engine()
         {
+            int count = 0;
             do
             {
                 playOneRound();
+                count++;
                 Console.Write("Ban co muon choi tiep hong? <C/K> ");
                 string choice = Console.ReadLine();
                 if (choice.ToUpper().Equals("K"))
                 {
                     Console.WriteLine("Byeee! Mai choi tiep nha!");
+                    Console.WriteLine($"Hom nay ban da choi {count} ban!");
                     break;
                 }
             } while (true);
@@ -184,9 +190,44 @@ namespace _24C1INF50900503_31231022205_KieuTram
         {
 
         }
-        public static void Question_04b() //Xuất ra 100 số nguyên tố đầu tiên
+        public static void Question_04b() //Xuất ra N số nguyên tố đầu tiên
         {
-
+            Console.Write("Nhap N so nguyen to can xuat: ");
+            int N = int.Parse(Console.ReadLine());
+            int so = 2;
+            int dem = 0;
+            while (dem<N)
+            {
+                if (IsPrime(so))
+                {
+                    Console.Write($" {so} ");
+                    dem++;
+                }
+                so++;
+            }    
+        }
+        static bool IsPerfect(int num) //Hàm IsPerfect để kiểm tra 
+        {
+            int sum = 1;
+            for (int i = 2; i < num; i++)
+            {
+                if (num % i == 0)
+                    sum += i;
+            }
+            return sum == num;     //hàm trả về true nếu sum = num
+        }
+        static void printPerfectNumbersLessthan1000()
+        {
+            Console.WriteLine("Cac so hoan hao nho hon 1000: ");
+            for (int i = 0; i < 1000; i++)
+            {
+                if (IsPerfect(i))
+                    Console.Write($" {i} ");
+            }
+        }
+        public static void Question_05()
+        {
+            printPerfectNumbersLessthan1000();
         }
     }
 }
