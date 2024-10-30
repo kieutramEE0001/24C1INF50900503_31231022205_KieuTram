@@ -12,21 +12,21 @@ namespace _24C1INF50900503_31231022205_KieuTram
 {
     internal class Lesson_04
     {
-        public static void Main()
-        {
-            //Question_00();
-            //Question_02();
-            //Question_03();
-            //Question_1();
-            //Question_2();
-            //Question_3();
-            //Question_4_2();
-            Question_4_3();
-            //Question_6();
-            //Question_7();
-            //Question_8();
-            Console.ReadKey();
-        }
+        //public static void Main()
+        //{
+        //    Question_00();
+        //    Question_02();
+        //    Question_03();
+        //    Question_1();
+        //    Question_2();
+        //    Question_3();
+        //    Question_4_2();
+        //    Question_4_3();
+        //    Question_6();
+        //    Question_7();
+        //    Question_8();
+        //    Console.ReadKey();
+        //}
         /// <summary>
         /// Game doan so <br/>
         /// May tinh tu nghi ngau nhien 1 so <br/>
