@@ -13,12 +13,13 @@ namespace _24C1INF50900503_31231022205_KieuTram
         public static void Main()
         {
             //VD_01();
-            Game_TaiXiu();
+            //Game_TaiXiu();
             //Question_01();
             //Question_02();
             //Question_04a();
             //Question_04b();
             //Question_05();
+            Question_06();
             Console.ReadKey();
         }
         public static void VD_01()
@@ -229,5 +230,21 @@ namespace _24C1INF50900503_31231022205_KieuTram
         {
             printPerfectNumbersLessthan1000();
         }
+        static bool IsPangram(string input)
+        {
+            input = input.ToLower();
+            return "abcdefghijklmnopqrstuvwxyz".All(input.Contains);
+        }
+        public static void Question_06()
+        {
+            Console.Write("Nhap chuoi can kiem tra: ");
+            string teststring = Console.ReadLine();
+            if (IsPangram(teststring))
+                Console.WriteLine("Chuoi nay la Pangram");
+            else
+                Console.WriteLine("Chuoi nay khong phai la Pangram");
+        }
+        
+        
     }
 }
