@@ -13,13 +13,13 @@ namespace _24C1INF50900503_31231022205_KieuTram
         public static void Main()
         {
             //VD_01();
-            //Game_TaiXiu();
+            Game_TaiXiu();
             //Question_01();
             //Question_02();
             //Question_04a();
             //Question_04b();
             //Question_05();
-            Question_06();
+            //Question_06();
             Console.ReadKey();
         }
         public static void VD_01()
@@ -53,44 +53,69 @@ namespace _24C1INF50900503_31231022205_KieuTram
             int sum_of_dice = die_1 + die_2 + die_3;
             return sum_of_dice;
         }
-        static void playOneRound()
+        static void playOneRound(ref int user_money, ref int bet)
         {
             int comp_dice = rollDice();
-            Console.WriteLine("Chao mung den voi Game Tai Xiu ><");
+            Console.WriteLine();
             Console.Write("Ban doan Tai hay Xiu? <T/X> ");
             string uesr_guessing = Console.ReadLine();
             if (uesr_guessing.ToUpper().Equals("T"))
             {
                 if (comp_dice >= 10)//Tài
+                {
                     Console.WriteLine("You Win!");
+                    user_money += bet;
+                    Console.WriteLine($"Nhan duoc them {bet}$");
+                }
                 else
+                {
                     Console.WriteLine("You Lose!");
+                    user_money -= bet;
+                    Console.WriteLine($"{bet}$ thuoc ve chung toi!");
+                }    
             }
             else if (uesr_guessing.ToUpper().Equals("X"))
             {
                 if (comp_dice < 10)//Xỉu
+                {
                     Console.WriteLine("You Win!");
+                    user_money += bet;
+                    Console.WriteLine($"Nhan duoc them {bet}$");
+                }
                 else
+                {
                     Console.WriteLine("You Lose!");
+                    user_money -= bet;
+                    Console.WriteLine($"{bet}$ thuoc ve chung toi!");
+                }
             }
             else
             {
                 Console.WriteLine("Vui long chon cho dung");
-            }    
+            }
         }
         static void Game_engine()
         {
+            Console.WriteLine("___Chao mung den voi Game Tai Xiu ><___");
+            Console.WriteLine("So tien hien co la: 1000$");
+            Console.WriteLine();
+            Console.WriteLine("Ban muon cuoc bao nhieu?");
+            int bet = int.Parse(Console.ReadLine());
             int count = 0;
+            int user_money = 1000; 
             do
             {
-                playOneRound();
+                playOneRound(ref user_money, ref bet);
                 count++;
                 Console.Write("Ban co muon choi tiep hong? <C/K> ");
                 string choice = Console.ReadLine();
                 if (choice.ToUpper().Equals("K"))
                 {
-                    Console.WriteLine("Byeee! Mai choi tiep nha!");
-                    Console.WriteLine($"Hom nay ban da choi {count} ban!");
+                    Console.WriteLine();
+                    Console.WriteLine("--/TONG KET/--");
+                    Console.WriteLine($"So lan choi: {count}");
+                    Console.WriteLine($"So tien nhan duoc: {user_money}$");
+                    Console.WriteLine("See you again! ><");
                     break;
                 }
             } while (true);
@@ -244,7 +269,5 @@ namespace _24C1INF50900503_31231022205_KieuTram
             else
                 Console.WriteLine("Chuoi nay khong phai la Pangram");
         }
-        
-        
     }
 }
