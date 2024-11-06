@@ -10,18 +10,18 @@ namespace _24C1INF50900503_31231022205_KieuTram
 {
     internal class Lesson_05
     {
-        public static void Main()
-        {
-            //VD_01();
-            Game_TaiXiu();
-            //Question_01();
-            //Question_02();
-            //Question_04a();
-            //Question_04b();
-            //Question_05();
-            //Question_06();
-            Console.ReadKey();
-        }
+        //public static void Main()
+        //{
+        //    //VD_01();
+        //    Game_TaiXiu();
+        //    //Question_01();
+        //    //Question_02();
+        //    //Question_04a();
+        //    //Question_04b();
+        //    //Question_05();
+        //    //Question_06();
+        //    Console.ReadKey();
+        //}
         public static void VD_01()
         {
             int a = 6; int b = 7;
