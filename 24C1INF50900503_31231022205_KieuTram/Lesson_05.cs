@@ -114,7 +114,7 @@ namespace _24C1INF50900503_31231022205_KieuTram
                     Console.WriteLine();
                     Console.WriteLine("--/TONG KET/--");
                     Console.WriteLine($"So lan choi: {count}");
-                    Console.WriteLine($"So tien nhan duoc: {user_money}$");
+                    Console.WriteLine($"So tien ban co: {user_money}$");
                     Console.WriteLine("See you again! ><");
                     break;
                 }
