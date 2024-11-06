@@ -10,14 +10,14 @@ namespace _24C1INF50900503_31231022205_KieuTram
 {
     internal class Lesson_05
     {
-        //public static void Main()
+        //public static void Main(string[] args)
         //{
-        //    //VD_01();
-        //    Game_TaiXiu();
+        //    //Vd_01();
+        //    //Game_taixiu();
         //    //Question_01();
         //    //Question_02();
         //    //Question_04a();
-        //    //Question_04b();
+        //    Question_04b();
         //    //Question_05();
         //    //Question_06();
         //    Console.ReadKey();
@@ -211,10 +211,6 @@ namespace _24C1INF50900503_31231022205_KieuTram
             Console.Write("Nhap so n = ");
             int n = int.Parse(Console.ReadLine());  
             printPrimenumberUnderN(n);
-        }
-        static void printFirstNprimenumbers()
-        {
-
         }
         public static void Question_04b() //Xuất ra N số nguyên tố đầu tiên
         {
