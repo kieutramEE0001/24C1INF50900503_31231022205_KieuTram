@@ -13,11 +13,11 @@ namespace _24C1INF50900503_31231022205_KieuTram
         //public static void Main(string[] args)
         //{
         //    //Vd_01();
-        //    //Game_taixiu();
+        //    Game_TaiXiu();
         //    //Question_01();
         //    //Question_02();
         //    //Question_04a();
-        //    Question_04b();
+        //    //Question_04b();
         //    //Question_05();
         //    //Question_06();
         //    Console.ReadKey();

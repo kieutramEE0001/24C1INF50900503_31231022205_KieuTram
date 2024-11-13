@@ -9,12 +9,12 @@ namespace _24C1INF50900503_31231022205_KieuTram
 {
     internal class Lesson_06
     {
-        public static void Main(string[] args)
-        {
-            //Question_01();
-            Vidu_Timkiem();
-            Console.ReadKey();
-        }
+        //public static void Main(string[] args)
+        //{
+        //    //Question_01();
+        //    Vidu_Timkiem();
+        //    Console.ReadKey();
+        //}
 
         /// <summary>
         /// 1. Khai báo mảng với n phần tử, n nhập từ bàn phím
