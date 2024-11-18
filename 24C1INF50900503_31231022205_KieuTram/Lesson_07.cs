@@ -12,7 +12,9 @@ namespace _24C1INF50900503_31231022205_KieuTram
         public static void Main(string[] args)
         {
             //Question_01();
-            Vidu_Manglomchom();
+            //Vidu_Manglomchom();
+            //Exercise_01p32();
+            Exercise_02p32();
             Console.ReadKey();
         }
         public static void Question_01()
@@ -30,13 +32,13 @@ namespace _24C1INF50900503_31231022205_KieuTram
             XuatMang(a);
             Console.WriteLine();
             //Xuất ra dòng hoặc cột theo yêu cầu
-            //XuatDonghoacCot(a);
-            //Console.WriteLine();
-            //int MaxofMatrix = TimGTLN(a);
-            //Console.WriteLine($"Gia tri lon nhat cua mang: {MaxofMatrix}");
-            //Console.Write("Nhap so can tim: ");
-            //int value = int.Parse(Console.ReadLine());
-            //TimKiemPhantu(a, value);
+            XuatDonghoacCot(a);
+            Console.WriteLine();
+            int MaxofMatrix = TimGTLN(a);
+            Console.WriteLine($"Gia tri lon nhat cua mang: {MaxofMatrix}");
+            Console.Write("Nhap so can tim: ");
+            int value = int.Parse(Console.ReadLine());
+            TimKiemPhantu(a, value);
             GTNNcuaDong(a);
             GTNNcuaCot(a);
             Console.WriteLine();
@@ -220,7 +222,7 @@ namespace _24C1INF50900503_31231022205_KieuTram
             InMang(a);
             Console.Write("Nhap dong can sap xep: ");
             int index = int.Parse(Console.ReadLine());
-            SortRowAtoZ(a,index);
+            SortRowAtoZ(a, index);
             Console.WriteLine();
             InMang(a);
         }
@@ -229,7 +231,7 @@ namespace _24C1INF50900503_31231022205_KieuTram
             Random random = new Random();
             for (int i = 0; i < a.Length; i++)
             {
-                Console.Write($"Nhap so cot cho dong {i}: ");
+                Console.Write($"Nhap so cot cho dong {i + 1}: ");
                 int cols = int.Parse(Console.ReadLine());
                 a[i] = new int[cols]; //cấp phát vùng nhớ cho các phần tư
                 for (int j = 0; j < cols; j++)
@@ -237,51 +239,129 @@ namespace _24C1INF50900503_31231022205_KieuTram
                     a[i][j] = random.Next(100);
                 }
             }
-
         }
         private static void InMang(int[][] a)
         {
-            for (int i = 0; i < a.Length;i++)
+            for (int i = 0; i < a.Length; i++)
             {
-               for (int j = 0; j < a[i].Length;j++)
+                for (int j = 0; j < a[i].Length; j++)
                 {
                     Console.Write($"{a[i][j]}\t");
                 }
-               Console.WriteLine();
+                Console.WriteLine();
             }
         }
-        static void SortRowAtoZ(int[][]a, int index)
+        static void SortRowAtoZ(int[][] a, int index)
         {
-            int[] line = a[index];
-            for (int i = 0;i < line.Length;i++)
+            int[] line = a[index - 1];
+            for (int i = 0; i < line.Length; i++)
             {
-                for (int j = 0; j<i; j++)
+                for (int j = 0; j < i; j++)
                 {
                     if (line[i] < line[j])
                     {
                         int temp = line[i];
                         line[i] = line[j];
                         line[j] = temp;
-                    }    
-                } 
-                    
-            }    
+                    }
+                }
+
+            }
         }
         public static void Exercise_01p32()
         {
-            int[][] a;
-            int rows = 4;
-            a = new int[rows][];
-            for (int i = 0; i < a.Length;i++)
+            int[][] b = TaoMangBai01();
+            InMangBai1(b);
+        }
+        static int[][] TaoMangBai01()
+        {
+            int[][] b = new int[4][];
+            b[0] = new int[] { 1, 1, 1, 1, 1 };
+            b[1] = new int[] { 2, 2 };
+            b[2] = new int[] { 3, 3, 3, 3 };
+            b[3] = new int[] { 4, 4 };
+            return b;
+        }
+        static void InMangBai1(int[][] b)
+        {
+            Console.WriteLine("Mang b:");
+            for (int i = 0; i < b.Length; i++)
             {
-                Console.Write($"Nhap so cot cho dong {i}: ");
-                int cols = int.Parse(Console.ReadLine());
-                a[i] = new int[cols]; //cấp phát vùng nhớ cho các phần tư
-                for (int j = 0; j < cols; j++)
+                for (int j = 0; j < b[i].Length; j++)
                 {
-                    a[i][i];
+                    Console.Write(b[i][j] + "\t");
                 }
+                Console.WriteLine();
+            }
+        }
+        public static void Exercise_02p32()
+        {
+            int[][] c;
+            Console.Write("Nhap so dong: r = ");
+            int rows = int.Parse(Console.ReadLine());
+            c = new int[rows][];
+            TaoMangRandom(c);
+            InMangBai2(c);
+            Console.WriteLine() ;
+            //In ra giá trị lớn nhất của từng dòng
+            for (int i = 0;i < c.Length;i++)
+            {
+                int gtlncuadong = GTLNcuaDong(c[i]);
+                Console.WriteLine($"Gia tri lon nhat cua dong {i+1} la {gtlncuadong}");
             }    
+            Console.WriteLine();
+            int max = GTLNcuaMang(c);
+            Console.WriteLine($"Gia tri lon nhat cua mang la {max}");
+        }
+        static void TaoMangRandom(int[][] c)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < c.Length; i++)
+            {
+                Console.Write($"Nhap so cot cho dong a[{i + 1}]: ");
+                int cot = int.Parse(Console.ReadLine());
+                c[i] = new int[cot];
+                for (int j = 0; j < c[i].Length; j++)
+                {
+                    c[i][j] = rnd.Next(0, 100);
+                }
+            }
+        }
+        static void InMangBai2(int[][] c)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Mang da tao: "); //Mảng đã tạo
+            for (int i = 0; i < c.Length; i++)
+            {
+                for (int j = 0; j < c[i].Length; j++)
+                {
+                    Console.Write(c[i][j] + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
+        static int GTLNcuaMang(int[][] c)
+        {
+            int maxofarrays = c[0][0];
+            for (int i = 0;i < c.Length; i++)
+            {
+                for (int j = 0;j < c[i].Length; j++)
+                {
+                    if (c[i][j] > maxofarrays)
+                        maxofarrays = c[i][j];
+                }    
+            }    
+            return maxofarrays;
+        }
+        static int GTLNcuaDong(int[] row)
+        {
+            int maxofrows = row[0];
+            for (int i = 1;i < row.Length;i++)
+            {
+                if (row[i] > maxofrows)
+                    maxofrows = row[i];
+            }    
+            return maxofrows;
         }
     }
 }
