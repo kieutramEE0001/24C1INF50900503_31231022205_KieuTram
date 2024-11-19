@@ -300,10 +300,13 @@ namespace _24C1INF50900503_31231022205_KieuTram
             Console.Write("Nhap so dong: r = ");
             int rows = int.Parse(Console.ReadLine());
             c = new int[rows][];
+            //2.0
             TaoMangRandom(c);
+            Console.WriteLine();
+            Console.WriteLine("Mang da tao:");
             InMangBai2(c);
             Console.WriteLine() ;
-            //In ra giá trị lớn nhất của từng dòng
+            //2.1: In ra giá trị lớn nhất của từng dòng và giá trị lớn nhất của toàn mảng
             for (int i = 0;i < c.Length;i++)
             {
                 int gtlncuadong = GTLNcuaDong(c[i]);
@@ -312,6 +315,20 @@ namespace _24C1INF50900503_31231022205_KieuTram
             Console.WriteLine();
             int max = GTLNcuaMang(c);
             Console.WriteLine($"Gia tri lon nhat cua mang la {max}");
+            //2.2: lọc theo thứ tự từ nhỏ đến lớn
+            Console.WriteLine();
+            Console.WriteLine("Mang da sap xep:");
+            SortAtoZ(c);
+            InMangBai2(c);
+            //2.3: Tìm số nguyên tố trong mảng
+            Console.WriteLine();
+            Songuyento(c);
+            //2.4: tìm kiếm phần tử
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.Write("Nhap so can tim: ");
+            int num = int.Parse(Console.ReadLine());
+            TimKiem(c, num);
         }
         static void TaoMangRandom(int[][] c)
         {
@@ -329,8 +346,6 @@ namespace _24C1INF50900503_31231022205_KieuTram
         }
         static void InMangBai2(int[][] c)
         {
-            Console.WriteLine();
-            Console.WriteLine("Mang da tao: "); //Mảng đã tạo
             for (int i = 0; i < c.Length; i++)
             {
                 for (int j = 0; j < c[i].Length; j++)
@@ -363,6 +378,75 @@ namespace _24C1INF50900503_31231022205_KieuTram
             }    
             return maxofrows;
         }
+        static void SortAtoZ(int[][] c)
+        {
+            foreach (int[] row in c)
+            {
+                for (int i = 0; i < row.Length; i++)
+                {
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (row[i] < row[j])
+                        {
+                            int m = row[i];
+                            row[i] = row[j];
+                            row[j] = m;
+                        }
+                    }
+                }
+            }
+        }
+        //Tìm số nguyên tố trong mảng
+        static void Songuyento(int[][] c)
+        {
+            bool FoundPrime = false;
+            Console.WriteLine("Nhung so nguyen to ton tai trong mang:");
+            for (int i = 0; i < c.Length; i++)
+            {
+                for (int j = 0; j < c[i].Length; j++)
+                {
+                    if (c[i][j] <= 1)
+                        continue;
+                    else
+                    {
+                        bool IsPrime = true;
+                        for (int k = 2; k <= Math.Sqrt(c[i][j]); k++)
+                        {
+                            if (c[i][j] % k == 0)
+                            {
+                                IsPrime = false;
+                                break;
+                            }
+                        }
+                        if (IsPrime)
+                        {
+                            FoundPrime = true;
+                            Console.Write(c[i][j] + "\t");
+                        }
+                    }
+                }
+            }
+            if (!FoundPrime)
+                Console.WriteLine("Khong ton tai so nguyen to trong mang.");
+        }
+        static void TimKiem(int[][] c, int num)
+        {
+            bool Find = false;
+            for(int i = 0;i < c.Length; i++)
+            {
+                for (int j = 0 ; j < c[i].Length;j++)
+                {
+                    if (c[i][j] == num)
+                    {
+                        Console.WriteLine($"So {num} xuat hien tai dong {i + 1} cot {j + 1}");
+                        Find = true;
+                    }
+                }    
+            }
+            if (!Find)
+                Console.WriteLine($"So {num} khong ton tai trong mang.");
+        }
     }
 }
+
 
