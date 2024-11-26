@@ -11,8 +11,8 @@ namespace _24C1INF50900503_31231022205_KieuTram
     {
         //public static void Main(string[] args)
         //{
-        //    //Question_01();
-        //    Vidu_Timkiem();
+        //    Question_01();
+        //    //Vidu_Timkiem();
         //    Console.ReadKey();
         //}
 
@@ -28,7 +28,10 @@ namespace _24C1INF50900503_31231022205_KieuTram
             Console.Write("Enter the quantity of items: n = ");
             int n = int.Parse(Console.ReadLine());
             int[] a = new int[n];
-            Xuatketqua(a);
+            //Xuatketqua(a);
+            generateRandomArray(a);
+            Console.WriteLine();
+            InMang(a);
         }
         static void Xuatketqua(int[] a)
         {
@@ -98,6 +101,7 @@ namespace _24C1INF50900503_31231022205_KieuTram
         }
         static void InMang(int[] a)
         {
+            Console.Write("The array: ");
             foreach (int i in a)
             {
                 Console.Write($"{i} ");

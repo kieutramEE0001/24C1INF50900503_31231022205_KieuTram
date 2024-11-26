@@ -9,14 +9,14 @@ namespace _24C1INF50900503_31231022205_KieuTram
 {
     internal class Lesson_07
     {
-        public static void Main(string[] args)
-        {
-            //Question_01();
-            //Vidu_Manglomchom();
-            //Exercise_01p32();
-            Exercise_02p32();
-            Console.ReadKey();
-        }
+        //public static void Main(string[] args)
+        //{
+        //    //Question_01();
+        //    //Vidu_Manglomchom();
+        //    //Exercise_01p32();
+        //    Exercise_02p32();
+        //    Console.ReadKey();
+        //}
         public static void Question_01()
         {
             int[,] a;
@@ -58,8 +58,6 @@ namespace _24C1INF50900503_31231022205_KieuTram
             }
 
         }
-
-
         static void XuatDonghoacCot(int[,] a)
         {
             Console.Write("Ban muon xuat dong hay cot? <D/C> ");
