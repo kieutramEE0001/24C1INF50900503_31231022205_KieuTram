@@ -9,12 +9,12 @@ namespace _24C1INF50900503_31231022205_KieuTram
 {
     internal class Lesson_06
     {
-        //public static void Main(string[] args)
-        //{
-        //    Question_01();
-        //    //Vidu_Timkiem();
-        //    Console.ReadKey();
-        //}
+        public static void Main(string[] args)
+        {
+            Question_01();
+            //Vidu_Timkiem();
+            Console.ReadKey();
+        }
 
         /// <summary>
         /// 1. Khai báo mảng với n phần tử, n nhập từ bàn phím
@@ -28,8 +28,8 @@ namespace _24C1INF50900503_31231022205_KieuTram
             Console.Write("Enter the quantity of items: n = ");
             int n = int.Parse(Console.ReadLine());
             int[] a = new int[n];
-            //Xuatketqua(a);
-            generateRandomArray(a);
+            Xuatketqua(a);
+            //generateRandomArray(a);
             Console.WriteLine();
             InMang(a);
         }
